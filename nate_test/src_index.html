@@ -503,14 +503,13 @@ and open the template in the editor.
 			event binding, so that accordions will open. 
 			*/
 			
+			// create accordions array
 			var outer_accords = Array.prototype.slice.call(document.getElementsByClassName("accordion"));
 			var inner_accords = Array.prototype.slice.call(document.getElementsByClassName("inner_accordion"));
-			
 			var accordions = outer_accords.concat(inner_accords);
 			
-				
-			var i;
-
+			// iterate through accordions array, binding onclick event
+			// to target opening/closing behavior
 			for (i = 0; i < accordions.length; i++) 
 			{
 				accordions[i].onclick = function()
@@ -530,11 +529,14 @@ and open the template in the editor.
 					{
 						var accord = accordions[i];
 						
+						// we don't want to collapse ourself 
+						// immediately upon trying to open...
 						if(accord != this)
 						{
-							for(n = 0; n < accord.classList.length; n++)
+							// if any other accord is open, close it
+							if(accord.classList.length > 1 && accord.classList[1] == "active")
 							{
-								if(accord.classList[n] == "active")
+								if(accord.classList[0] == this.classList[0])
 								{
 									toggle_accordion(accord);
 								}

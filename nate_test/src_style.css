@@ -1,16 +1,50 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : Jul 6, 2017, 4:38:28 PM
     Author     : halcarton
+	
+	Modified 9/13/2017 by Nate Spence
 */
 
+/* ------------------------------------------
+GENERAL CONTENT
+------------------------------------------ */
+
+/* Styles the p element */
+p
+{
+    padding: 2%;
+}
+
+/*This class centers an element and adds some space between other elements*/
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+    text-align: center;
+}
+
+/* Styles body element */
+body
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #333333;
+}
+
+/* Styles ul element */
+ul 
+{
+    list-style-type: none;
+    padding: 1%;
+}
+
+/* ------------------------------------------
+ACCORDION CONTENT
+------------------------------------------ */
+
 /* Style the buttons that are used to open and close the accordion panel */
-button.accordion,
-button.inner_accordion
+button.accordion
 {
     background-color: #333333;
     color: white;
@@ -29,21 +63,14 @@ button.inner_accordion
 
 /* Add a background color to the button if it is clicked on 
 (add the .active class with JS), and when you move the mouse over it (hover) */
-button.accordion.active, button.accordion:hover,
-button.inner_accordion.active, button.inner_accordion:hover 
+button.accordion.active, button.accordion:hover 
 {
     background-color: #808080;
     color: white;
 }
 
-/* Style the accordion panel. Note: hidden by default */
-div.panel 
-{
-    padding: 0 18px;
-    display: none;
-}
-
-button.accordion:after, button.inner_accordion:after
+/* Styles effects on accordion after mouse exit */
+button.accordion:after
 {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
@@ -55,40 +82,18 @@ button.accordion:after, button.inner_accordion:after
     margin-left: 5px;
 }
 
-button.accordion.active:after, button.inner_accordion:after
+/* Styles effects on accordion after mouse exit, if accordion left active */
+button.accordion.active:after
 {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-body
+/* Style the accordion panel. Note: hidden by default */
+div.panel 
 {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #333333;
+    padding: 0 18px;
+    display: none;
 }
-
-ul 
-{
-    list-style-type: none;
-    padding: 1%;
-}
-
-/*
-li 
-{
-    width: 20%;
-    float: left; 
-    background-color: #5c8021;
-    padding-right: 2px;
-    padding-left: 2px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-right: 1%;
-    text-align: center;
-    border: 2px solid;
-    border-radius: 5px;
-}
-*/
 
 /* ------------------------------------------
 FRAME CONTENT 
@@ -103,7 +108,6 @@ FRAME CONTENT
 	
 	text-align: center;
 }
-
 
 /* Style for the panel within which 
 View content will be displayed. */
@@ -126,7 +130,6 @@ View content will be displayed. */
     border-radius: 5px;
     padding: 1.5%;
 }
-
 
 /* Style for list of view_nav buttons */
 #view_nav_ul 
@@ -178,20 +181,6 @@ VIEW CONTENT
     background-color: #808080;
 }
 
-/*This class centers an element and adds some space between other elements*/
-.center
-{
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 3%;
-    text-align: center;
-}
-
-p
-{
-    padding: 2%;
-}
-
 /* These two rules make sure that the navigation panel
    remains at the bottom of the screen even when the
    accordion panels are open */
@@ -204,17 +193,6 @@ p
     z-index: 1;
 }
 
-/*
-.pos_fixed:after 
-{
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1;
-}
-*/
-
 /*This allows user to scroll exercises in the accordian panel */
 .scroll 
 {
@@ -222,50 +200,9 @@ p
     overflow-y: scroll;
 }
 
-/* The Modal (background) */
-.modal 
-{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content 
-{
-    background-color: #808080;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 10px;
-    border: 3px solid #87a625;
-    border-radius: 5px;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close 
-{
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    z-index: 1;
-    margin-top: 1px;
-}
-
-.close:hover,
-.close:focus 
-{
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+/* ------------------------------------------
+VIDEO CONTENT
+------------------------------------------ */
 
 /* For making the iframe responsive. Got it from this website:
    https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/ */
@@ -278,6 +215,7 @@ p
     overflow: hidden;
 }
 
+/* Styles video i-frame */
 .video-container iframe 
 {
     position: absolute;

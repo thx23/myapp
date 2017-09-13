@@ -48,35 +48,54 @@ and open the template in the editor.
 			<div class="panel scroll">
 				<ul>
 					<li>
-						<button class="inner_accordion">Goblet Squat</button>
+						<button class="inner_accordion">Legs Exercise 1</button>
 						<div class="panel exercise_panel">
 							<div class="center">
 							
-								<!-- 
-								We can turn the button below
-								into a thumbnail for the exercise
-								-->
-							
-								<!-- Trigger/Open The Modal -->
-								<button id="myBtn">Watch Video</button>
-
-								<!-- The Modal -->
-								<div id="myModal" class="modal">
-
-								<!-- Modal content -->
-									<div class="modal-content video-container">
-										<span class="close">&times;</span>
-										<iframe width="560" height="315" 
-												src="https://www.youtube.com/embed/NIrcxSkwui8" 
-												frameborder="0" allowfullscreen>
-										</iframe>
-									</div>
-
-								</div>
+								<form method="get" action="exercise_page.html">
+									<button type="submit">View Exercise</button>
+								</form>
+								
 							</div>
 							<div>
 								<p>
-									Exercise description here
+									Basic exercise description here.
+								</p>    
+							</div>
+						</div>
+					</li>
+					
+					<li>
+						<button class="inner_accordion">Legs Exercise 2</button>
+						<div class="panel exercise_panel">
+							<div class="center">
+
+								<form method="get" action="exercise_page.html">
+									<button type="submit">View Exercise</button>
+								</form>
+
+							</div>
+							<div>
+								<p>
+									Basic exercise description here.
+								</p>    
+							</div>
+						</div>
+					</li>
+					
+					<li>
+						<button class="inner_accordion">Legs Exercise 3</button>
+						<div class="panel exercise_panel">
+							<div class="center">
+							
+								<form method="get" action="exercise_page.html">
+									<button type="submit">View Exercise</button>
+								</form>
+								
+							</div>
+							<div>
+								<p>
+									Basic exercise description here.
 								</p>    
 							</div>
 						</div>
@@ -563,39 +582,6 @@ and open the template in the editor.
 					panel.style.display = "block";
 				}
 			}
-				
-			/* ------------------------------------------------------------
-			MODAL CONTENT
-			------------------------------------------------------------ */
-			
-			// Get the modal
-			var modal = document.getElementById('myModal');
-			// Get the button that opens the modal
-			var btn = document.getElementById("myBtn");
-			// Get the <span> element that closes the modal
-			var span = document.getElementsByClassName("close")[0];
-
-			// When the user clicks on the button, open the modal 
-			btn.onclick = function() 
-			{
-				modal.style.display = "block";
-			};
-
-			// When the user clicks on <span> (x), close the modal
-			span.onclick = function() 
-			{
-				modal.style.display = "none";
-			};
-
-			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) 
-			{
-				if (event.target === modal) 
-				{
-					modal.style.display = "none";
-				}
-			};
-			
 			
 		</script>
 

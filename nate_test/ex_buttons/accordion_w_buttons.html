@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+	<head>
+	
+		<title>SRC Fitness App</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="accordian-style.css" />
+		<link rel="stylesheet" type="text/css" href="ex_link.css" />
+		
+	</head>
+
+	<body>
+
+		<h1 id = "app_title" class = "frame_bar" >SRC FITNESS</h1>
+			
+		<!-- <div id = "view_panel"> -->
+			
+			<h2 class = "view_title"> EXERCISES </h2> 
+
+			<!-- // TODO: Implement search content...
+			<div>
+				<button class="accordion">Search All</button>
+				<div class="panel">
+					<br>
+					Enter Search: <input type="text" name="search"><br>
+					
+					<br>
+					Results
+					<ul>
+						<li>Result 1</li>
+						<li>Result 2</li>
+						<li>Result 3</li>
+					</ul>   
+				</div>
+			</div>
+			-->
+		<!-- </div> -->
+
+			<h3> CATEGORIES </h3>
+
+			<button class="accordion">Push</button>
+			<div class="panel scroll">
+				<ul>
+					<li class="ex_link">
+						<a href="#">
+							<div class="frame">
+								<img src="wombat.jpg" alt="wombat" class="ex_img">
+							</div>
+							<div class="ex_desc">
+								<h3>Legs Exercise</h3>
+								<p>
+									Basic exercise description here.
+								</p>    
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<button class="accordion">Pull</button>
+			<div class="panel scroll">
+				<ul>
+					<li class="ex_link">
+						<a href="#">
+							<div class="frame">
+								<img src="wombat.jpg" alt="wombat" class="ex_img">
+							</div>
+							<div class="ex_desc">
+								<h3>Legs Exercise</h3>
+								<p>
+									Basic exercise description here.
+								</p>    
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<button class="accordion">Core</button>
+			<div class="panel scroll">
+				<ul>
+					<li class="ex_link">
+						<a href="#">
+							<div class="frame">
+								<img src="wombat.jpg" alt="wombat" class="ex_img">
+							</div>
+							<div class="ex_desc">
+								<h3>Legs Exercise</h3>
+								<p>
+									Basic exercise description here.
+								</p>    
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+
+		<!-- TODO: Implement navigation bar -- when we have content to navigate to!
+		<div class = "frame_bar pos_fixed">
+			<ul id = "view_nav_ul">
+				<li class = "view_nav">Nav 1</li>
+				<li class = "view_nav">Nav 2</li>
+				<li class = "view_nav">Nav 3</li>
+				<li class = "view_nav">Nav 4</li>
+				<li class = "view_nav">Nav 5</li>
+			</ul> 
+		</div>
+		-->
+
+
+		<!-- TODO: Replace all this with unobtrusive equivalent... -->
+		<script>
+
+			/* ------------------------------------------------------------
+			ACCORDION CONTENT
+			------------------------------------------------------------ */
+			
+			/*
+			Fill array with all accordions.
+			Increment through array and set up onclick 
+			event binding, so that accordions will open. 
+			*/
+			
+			// create accordions array
+			var outer_accords = Array.prototype.slice.call(document.getElementsByClassName("accordion"));
+			var inner_accords = Array.prototype.slice.call(document.getElementsByClassName("inner_accordion"));
+			var accordions = outer_accords.concat(inner_accords);
+			
+			// iterate through accordions array, binding onclick event
+			// to target opening/closing behavior
+			for (i = 0; i < accordions.length; i++) 
+			{
+				accordions[i].onclick = function()
+				{
+					toggle_accordion(this);
+				
+					/*
+					Make only one accordion openable at a time...
+
+					On open outer_accordion class,
+					close all accordions except the opened accordion.
+
+					On open inner_accordion class,
+					close all inner_accordions except the opened accordion.
+					*/
+					for (i = 0; i < accordions.length; i++) 
+					{
+						var accord = accordions[i];
+						
+						// we don't want to collapse ourself 
+						// immediately upon trying to open...
+						if(accord != this)
+						{
+							// if any other accord is open, close it
+							if(accord.classList.length > 1 && accord.classList[1] == "active")
+							{
+								if(accord.classList[0] == this.classList[0])
+								{
+									toggle_accordion(accord);
+								}
+							}
+						}
+					}
+					
+				};
+			}
+			
+			/* Toggles the passed accordion object open or closed. */
+			function toggle_accordion(accordion)
+			{
+				accordion.classList.toggle("active");
+					
+				var panel = accordion.nextElementSibling;
+					
+				if (panel.style.display === "block") 
+				{
+					panel.style.display = "none";
+				}
+				else 
+				{
+					panel.style.display = "block";
+				}
+			}
+			
+		</script>
+
+	</body>
+	
+</html>

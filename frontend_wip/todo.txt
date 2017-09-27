@@ -1,5 +1,5 @@
 we need to automate the population of src_main's 
-accordions with exercises from the exercise folder.
+accordions with exercises from the exercises folder.
 
 I think I know how we'd do this in php, but we should figure out what 
 the approach is here.

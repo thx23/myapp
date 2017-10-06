@@ -14,7 +14,7 @@ def createExerWebpage(url, title, header, iframe, p):
                "      " + "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" + "\n"
                "      " + "<link rel='stylesheet' type='text/css' href='../../css/src_style.css' />" + "\n"
                "   " + "</head>" + "\n" + "<body>" + "\n" +
-               "   " + "<h1 id = 'app_title' class = 'frame_bar'>THE COMPLETE WORKOUT</h1>" + "\n" +
+               "   " + "<h1 id = 'app_title' class = 'frame_bar'>The Complete Workout</h1>" + "\n" +
                "   " + "<div id = 'view_panel'>" + "\n"
                "   " + "<h2>" + header + "</h2>" + "\n" +
                "   " + "<div class='center video-container'>" + "\n" +
@@ -25,7 +25,7 @@ def createExerWebpage(url, title, header, iframe, p):
                "         " + p + "\n" + 
                "      " + "</p>" + "\n" +
                "   " + "</div>" + "\n" +
-               "   " + "<form method='get' action='src_index.html'>" + "\n" +
+               "   " + "<form method='get' action='../../index.html'>" + "\n" +
                "      " + "<button type='submit'>Return to Exercises</button>" + "\n" +
                "   " + "</form>" + "\n" +
                "   " + "</div>" + "\n" +

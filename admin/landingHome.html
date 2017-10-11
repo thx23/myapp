@@ -1,3 +1,8 @@
+<?php
+	tcw_start();
+	session_start();
+?>
+
 
 <!DOCTYPE html>
 <!--
@@ -28,19 +33,29 @@ Last Modified: DBoyd 10-9-17
 
 			<h3> Login </h3>
 	
-			<form>
+			<form class = "form-signin" role = "form" 
+					action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
 				Username:<br>
-				<input type="text" name="username"><br><br>
+				<input type="text" class = "form-control" 
+					name = "username" placeholder = "e.g. SirLiftsALot" required autofocus>
+			   <br><br>
 				Password:<br>
-				<input type="password" name="password"><br><br>
+				<input type="password" name="password" placeholder = "e.g. GetSwole2017!!!" required autofocus>
+				<br>
+				<a href="https://pbs.twimg.com/media/DKW_xbwVwAAEo8b.jpg" class="forgotPwd">
+					<p style="font-size: 14px; text-decoration: none">Forgot password?</p>
+				</a>
+				<br>
 				<input type="submit" name="Login">
-				<!-- <link to forgot password?>
-				<br><br>
-				<link to register> -->
+				<!-- <link to register> -->
 			</form>
 			
 		</div>
-
+	
+	<center><a href="https://www.humboldt.edu/"><img src="roundHumboldtLogo.jpg"
+		alt="Humboldt.edu">
+	</a></center>
+	
 	</body>
 	
 </html>

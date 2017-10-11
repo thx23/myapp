@@ -104,3 +104,18 @@ View content will be displayed. */
 th, tr, th {
     text-align: center;
 }
+
+/* Humboldt.edu link at the bottom of each page*/
+#humboldt
+{
+	text-align: center;
+    display: inline-block;
+	
+}
+
+/* forgot password link*/
+#forgotPwd
+{
+	font-size: 8px;
+}
+

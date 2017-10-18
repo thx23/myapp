@@ -204,7 +204,7 @@ VIEW CONTENT
 VIDEO CONTENT
 ------------------------------------------ */
 
-/* For making the iframe responsive. Got it from this website:
+ /*For making the iframe responsive. Got it from this website:
    https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/ */
 .video-container 
 {
@@ -212,7 +212,6 @@ VIDEO CONTENT
     padding-bottom: 56.25%;
     padding-top: 10px;
     height: 0;
-    overflow: hidden;
 }
 
 /* Styles video i-frame */
@@ -222,5 +221,5 @@ VIDEO CONTENT
     top: 3em;
     left: 0; 
     width: 100%;
-    height: 100%;
+    height: 90%;
 }

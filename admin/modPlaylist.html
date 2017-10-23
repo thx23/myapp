@@ -8,7 +8,9 @@ and open the template in the editor.
 Last Modified: DBoyd 10-9-17
 -->
 <html>
-
+	<div align="right">
+		<a href="landingHome.html">Login</a>
+	</div>
 	<head>
 	
 		<title>TCW Playlists</title>
@@ -20,16 +22,33 @@ Last Modified: DBoyd 10-9-17
 
 	<body>
 
-		<h1 id = "app_title" class = "frame_bar" >Playlists</h1>
+		<h1 id = "app_title" class = "frame_bar" >
+			<font color="#ffc324" size="6">Create & Modify Playlists</font>
+		</h1>
 			
 		<div id = "view_panel" class = "center">	
+			<font color="#ffc324" size="5">
+				Which section would you like to create or modify a playlist for?
+			</font><br><br>
 			
+			<label for = "section">Section:</label> 
+			<select name="section">
+				<option value="pe9am">PE158_0900AM</option>
+				<option value="pe10am">PE158_1000AM</option>
+				<option value="pe11am">PE158_1100AM</option>
+				<option value="footballTeam">Football</option>
+			</select><br><br>
+			<input type="submit" name="submit" value="Continue">
 			
+			<br><br>Continue with modifying in some way. Still need to brainstorm this process...
 
 			<!-- add: section, select 1+ of ea. category, set due date, confirm -->
 			
 		</div>
 
+	<center><a href="https://www.humboldt.edu/"><img src="roundHumboldtLogo.jpg"
+		alt="Humboldt.edu">
+	</a></center>
 	</body>
 	
 </html>

@@ -139,3 +139,28 @@ header
 {
 	
 }
+
+.button
+{
+	border-radius: 6px;
+	border-width: 1px;
+	font-size: 28px;
+	height: 15px;
+	width: 76px;
+	box-shadow: 10px 10px 5px #FFF6AF;
+	font-weight: bold;
+	color: #333333;
+	border-color: #FFAA22;
+	text-shadow: #FFED66;
+}
+
+
+
+
+
+
+
+
+
+
+

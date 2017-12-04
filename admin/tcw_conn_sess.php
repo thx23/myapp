@@ -4,9 +4,12 @@
 
 <!DOCTYPE html>
 <!--
-    mySQL test connection
 
-    Nathan Ortolan (ndo28)
+    mySQL test connection
+    by Nathan Ortolan (ndo28)
+	Modified for THE COMPLETE WORKOUT - CS458
+	Modified by Dustin Boyd
+	Modified on 11/10/17
 
 -->
 <head>
@@ -26,7 +29,7 @@
 <body>
 
   <header class="header">
-    <h1>mySQL test</h1>
+    <h1>TCW Connection</h1>
   </header>
 
 

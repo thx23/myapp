@@ -1,9 +1,9 @@
 /* 
     Created on : 9-28-17
     Author     : DBoyd
-	Modified from document by: halcarton
+	Modified from document by: Halie Carton
 	
-	Modified 10/10/17 by DBoyd
+	Modified 12/05/17 by DBoyd
 */
 
 /* ------------------------------------------
@@ -31,6 +31,23 @@ body
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #045932;
+	height: 100%;
+}
+
+#footer
+{
+	background-color: #ffc324;
+    text-align: center;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+}
+
+#header
+{
+	
 }
 
 /* Styles ul element */
@@ -101,6 +118,14 @@ View content will be displayed. */
 	border-radius: 5px;
 }
 
+fieldset
+{
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 1.5%;
+    border-color: #ffc324;	
+}
+
 th, tr, th {
     text-align: center;
 }
@@ -130,16 +155,6 @@ th, tr, th {
 	text-align: right;
 }
 
-footer
-{
-	background-color: #ffc324;
-}
-
-header
-{
-	
-}
-
 .button
 {
 	border-radius: 6px;
@@ -154,7 +169,32 @@ header
 	text-shadow: #FFED66;
 }
 
+.btn {
+  background: #ddeb15;
+  background-image: -webkit-linear-gradient(top, #ddeb15, #f5ea20);
+  background-image: -moz-linear-gradient(top, #ddeb15, #f5ea20);
+  background-image: -ms-linear-gradient(top, #ddeb15, #f5ea20);
+  background-image: -o-linear-gradient(top, #ddeb15, #f5ea20);
+  background-image: linear-gradient(to bottom, #ddeb15, #f5ea20);
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
 
+.btn:hover {
+  background: #37f02d;
+  background-image: -webkit-linear-gradient(top, #37f02d, #1ac71a);
+  background-image: -moz-linear-gradient(top, #37f02d, #1ac71a);
+  background-image: -ms-linear-gradient(top, #37f02d, #1ac71a);
+  background-image: -o-linear-gradient(top, #37f02d, #1ac71a);
+  background-image: linear-gradient(to bottom, #37f02d, #1ac71a);
+  text-decoration: none;
+}
 
 
 

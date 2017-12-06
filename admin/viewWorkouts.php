@@ -4,10 +4,9 @@
 	
 	function viewWorkouts()
 	{
+		echo "viewWorkouts()";
 		?>	
-		<p>
-			viewWorkouts()
-		</p>
+		
 		
 	<?php
 	}

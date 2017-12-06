@@ -2,20 +2,15 @@
 	function tcw_complain($complaint)
 	{
 		?>
-	<h2>
+	<h2 class="center">
 		Cannot Proceed: <?= strip_tags($complaint) ?>
 	</h2>
 	
-	<form method="post"
+	<form method="post" class="center"
         action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>">
-            <input type="submit" value="try again" />
+            <input type="submit" value="Try Again" class="btn"/>
     </form>
 
-    <?php
-        require_once('tcw_footer.html');
-    ?>
-</body>
-</html>
     <?php
         session_destroy();
         exit;

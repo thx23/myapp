@@ -1,28 +1,19 @@
 <?php
 	
-	/* processUsers commits the entered values to add abs
+	/* processUsers commits the entered values to add a
 			new user to the database */
 	
 	function processUsers()
 	{
-		?>	
-		<p>
-			processUsers
-		</p>
-		
-	<?php
+	//echo "processUsers";
 	
 	/*establish connection*/
-	/*$host = $_SESSION['host'];
-	$dbname = $_SESSION['dbname'];
-	$db = $_SESSION['db'];
-	$pw = $_SESSION['pw'];*/
 	$dbname = "TheCompleteWorko";
     $pw = "Complete459";
     $host = "localhost";
     $db = "TheCompleteWorko";
 	
-	$conn = mysql_connect($host, $dbname, $pw, $db) or die("connection failed");
+	$conn = mysql_connect($host, $dbname, $pw, $db) or die("processUsers connection failed");
     $db = mysql_select_db($db);
 	
 	
@@ -42,25 +33,72 @@
 	$l_name = $_POST['lastName'];
 	$l_name = strip_tags($l_name);
 	
-	$new_user = "INSERT INTO User
-			(username,password,type,class,team,f_name,l_name)
+	$insert_new_user = 
+		"INSERT INTO User
+		(username,password,type,class,team,f_name,l_name)
 		VALUES('$username','$password','$type','$class','$team','$f_name','$l_name');";
-	?>
-	<p> variables:<?= $username?></p>
-	<?php	
-	//Inserting new user to the database
-	mysql_query($new_user) or trigger_error(mysql_error()." in ".$new_user);
 	
+	//Inserting new user to the database
+	mysql_query($insert_new_user) or (trigger_error(mysql_error()." in ".$insert_new_user)
+		&& (mysql_close($conn)));
+	?>
+	<p class="c">
+		New user inserted.
+	</p>
+	<?php
 	//create a select statement
-	$created_user = "SELECT username FROM User;";
+	$new_user_query = 
+		"SELECT COUNT(*)". 
+		"FROM 'User'".
+		"WHERE 'username' = '$username'".
+		"AND 'password' = '$password'";
+		
+	/*$sampleQuery = 
+		"SELECT `User`.`f_name`".
+		"FROM `User`".
+		"WHERE `username` = 'ddb14'";*/
+		
+	/*$exercise_query = 
+		"SELECT `Exercise`.`exrcise_name`".
+		"FROM `Exercise`".
+		"WHERE `exrcise_type` = 'WARMUP'";
+		*/
+	
+	/*$result=$mysqli->query($sampleQuery);
+	$numRows=$mysqli->mysqli_num_rows($result);
+	$i=0;
+	while($i < $numRows)
+	{
+		$field1=mysql_result($result,$i,"field1");
+		echo "$field1<br>";
+		$i++;
+	}*/
 	//query the database with the select
-	$result = mysql_query($created_user);
-	//print the query to the screen that a user has actually been created
-	$result2 = mysql_fetch_assoc($result);
-	echo ("New user ".$result2." has been created.");
+	//$result = mysqli_query($conn, $sampleQuery) 
+		/*or die("Bad query: $sampleQuery")*/;
+	//echo "after result connection";
+	
+	/*while($row = mysqli_fetch_array($result))
+	{
+		echo  $row['f_name'];
+	}*/
+	
+	
+	
+	//free the results
+	mysql_free_result($result);
+	
 	//close the connection
 	mysql_close($conn);
+	
+	//confirmNewUser($username, $password);
+	?>
+	
+	<div class="center">
+		<input type="submit" name="logout" value="logout"
+				class="btn">
+	</div>
+	
+	<?php
 	}
-
-
 ?>

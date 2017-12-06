@@ -28,12 +28,14 @@
 		require_once("selectUser.php");
 		/* fork from userMenu */
 		/* <-stuff here-> */
+		require_once("registerNewUser.php");
 		/* misc. */
 		require_once("tcw_complain.php");
 	?>
 </head>
 
 <body>
+	
 	<h1 id = "app_title" class = "frame_bar" >
 		Welcome to The Complete Workout
 	</h1>
@@ -42,20 +44,23 @@
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	/*~~~~~~~~~~~~~~~~~~~Login Area~~~~~~~~~~~~~~~~~~~~~~~~*/
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	$dbname = "TheCompleteWorko";
-    $pw = "Complete459";
+	$dbname = "TheCompleteWorko"; //$dbname = "TheCompleteWorko";
+    $pw = "Complete459"; //$pw = "Complete459";
     $host = "localhost";
     $db = "TheCompleteWorko";
 	
 	$_SESSION['host'] = $host;
-	$_SESSION['dbname'] = $dbname;
 	$_SESSION['db'] = $db;
+	$_SESSION['dbname'] = $dbname;
 	$_SESSION['pw'] = $pw;
 	  
 	if(! array_key_exists("next_screen", $_SESSION))
 	{
 		/*if no previous session, start a session by logging in*/
 		create_login();
+		//pull new pwd and username from session array
+		//$_SESSION['dbname'] = $dbname;		
+		//$_SESSION['pw'] = $pw;
 		$_SESSION['next_screen'] = 'choose_menu';
 	}
 	elseif($_SESSION['next_screen'] == 'choose_menu')
@@ -72,7 +77,12 @@
 		{
 			tcw_complain("Invalid credentials.");
 		}
-		echo "<p>first elseif after user/pass: credentials provided</p>";
+		if(((! array_key_exists('password', $_POST)) 
+			or (! array_key_exists('username', $_POST))) 
+			and (array_key_exists('register', $_POST)))
+		{
+			registerNewUser();
+		}
 		
 		/* sanitize user credentials */
 		$username = strip_tags($_POST["username"]);
@@ -86,6 +96,18 @@
 		/* loginSelect is a radio option for either admin/user */
 		$loginSelect = $_POST['loginSelect'];
 		$_SESSION["loginSelect"] = $loginSelect;
+		
+		// was register chosen
+		$registerNew = $_POST['register'];
+		$_SESSION["registerNew"] = $registerNew;
+		
+		
+		/*new user self-registration*/
+		if($registerNew == 'register') 
+		{
+			$_SESSION['next_screen'] = 'register_new';
+			registerNewUser();			
+		}
 		
 		// Session control for whether they want to quit or not
 		$_SESSION["exit"] = "no";
@@ -112,7 +134,7 @@
 	{
 		/* an admin should come here after successful login
 			and selecting createUser*/
-		echo "<p>createUsers here</p>";
+		//echo "<p>createUsers here</p>";
 		$_SESSION['next_screen'] = 'process_users';
 		createUsers();
 	}
@@ -121,8 +143,9 @@
 	{
 		/* an admin should come here after successful login
 			and selecting processUsers*/
-		echo "<p>processUsers here</p>";
+		//echo "<p>processUsers here</p>";
 		$_SESSION['next_screen'] = 'is_user_done';
+		$_SESSION['exit'] = 'logout';
 		processUsers();
 	}
 	elseif(($_SESSION['next_screen'] == 'personalScreen')
@@ -131,7 +154,7 @@
 	{
 		/* an admin should come here after successful login
 			and selecting createRoutine*/
-		echo "<p>createRoutine here</p>";
+		//echo "<p>createRoutine here</p>";
 		$_SESSION['next_screen'] = 'is_user_done';
 		createRoutine();
 	}
@@ -141,7 +164,7 @@
 	{
 		/* an admin should come here after successful login
 			and selecting viewWorkouts*/
-		echo "<p>viewWorkouts here</p>";
+		//echo "<p>viewWorkouts here</p>";
 		$_SESSION['next_screen'] = 'is_user_done';
 		viewWorkouts();
 	}
@@ -154,9 +177,14 @@
 	{
 		/* an admin should come here after successful login
 			and selecting createUser*/
-		echo "<p>createUsers here</p>";
+		//echo "<p>createUsers here</p>";
 		$_SESSION['next_screen'] = 'is_user_done';
 		createUsers();
+	}
+	elseif(array_key_exists('registerNow', $_POST))
+	{
+		$_SESSION['next_screen'] = 'register_new';
+		registerNewUser();
 	}
 	
 	
@@ -165,6 +193,17 @@
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/		
 	elseif(($_SESSION['next_screen'] == 'is_user_done') &&
 			($_SESSION['exit'] == "logout"))
+	{
+		/* user done and logout chosen -> kill the session */
+		session_destroy();
+		session_regenerate_id(TRUE);
+		session_start();
+		
+		create_login();
+		$_SESSION['next_screen'] = 'choose_menu';
+	}
+	elseif(($_SESSION['next_screen'] == 'is_user_done') &&
+			(array_key_exists('logout', $_POST)))
 	{
 		/* user done and logout chosen -> kill the session */
 		session_destroy();
@@ -183,8 +222,12 @@
 		session_start();
 		$_SESSION['next_screen'] = 'choose_menu';		
 	}
-	require_once("tcw_footer.html");
 	?>
+
+
+<footer id="footer">
+	<? require_once("tcw_footer.html"); ?>
+</footer>
 
 </body>
 </html>

@@ -5,25 +5,23 @@
 	
 	function adminSelection()
 	{
-		echo "<p>adminSelection</p>";
+		//echo "<p>adminSelection</p>";
 		?>
-	<h2 class="center"> TCW Administration </h2>
+	<!-- <h2 class="center"> TCW Administration </h2> -->
 	<form method="post" action="<?= htmlentities($_SERVER['PHP_SELF'],
 		ENT_QUOTES) ?>">
 		<fieldset class="center">
-			<legend> adminSelection </legend>
+			<legend> TCW Administration </legend>
 			
 			<!-- $_POST is gathering the 'name' data -->
 			<input type="submit" id="createRoutine" name="createRoutine" 
-				value="createRoutine">
+				class="btn" value="Create a New Routine">
 			<br>	
 			<input type="submit" id="createUsers" name="createUsers" 
-				value="createUsers"> 
+				class="btn" value="Create a New User"> 
 			<br>	
 			<input type="submit" id="viewWorkouts" name="viewWorkouts" 
-				value="viewWorkouts">
-			<br>
-			<input type="submit" id="logout" name="logout" value="logout">
+				class="btn" value="View Completed Workouts">
 			
 		</fieldset>
 	</form>

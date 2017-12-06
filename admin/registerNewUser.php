@@ -1,10 +1,13 @@
 <?php
-	function createUsers()
+	
+	/* viewWorkouts displays the query results to the page for the admin */
+	
+	function registerNewUser()
 	{
-		//echo "<p>createUsers()</p>";
-	?>
-	<!-- <h2> TCW - Create New Users </h2> -->
-	<form method="post" action="<?= htmlentities($_SERVER['PHP_SELF'],
+		echo "registerNewUser()";
+		?>
+		
+		<form method="post" action="<?= htmlentities($_SERVER['PHP_SELF'],
 		ENT_QUOTES) ?>" class="center">
 		<fieldset>
 			<legend> TCW - Create New Users </legend>
@@ -20,10 +23,7 @@
 			<input type="text" id="pwd_entry" required="required"
 				name = "pwd" placeholder = "Password" />
 				
-			<select name="userType">
-				<option value="standard">Standard User</option>
-				<option value="admin">Admin User</option>
-			</select>
+			<?= $_POST['userType'] = "standard"; ?>
 			
 			<select name="classChoice">
 				<option value="none">No class entry</option>
@@ -45,9 +45,10 @@
 			
 			<br><br>
 			
-			<input type="submit" name="userNext" value="Create User Now" class="btn" />
+			<input type="submit" name="registerNow" value="Register" class="btn" />
 		</fieldset>
 	</form>
+	
 	<?php
 	}
 ?>

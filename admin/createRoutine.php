@@ -6,16 +6,16 @@
 	function createRoutine()
 	{
 		?>	
-		<p class = "center">
+		<div class = "center">
 			createRoutine() - under construction
 			<br>
 			<img src="underConstruction.PNG" alt="Under Construction">
-		</p>
+		</div>
+		
+		
 		
 	<?php
 	}
 
 
 ?>
-</body>
-</html>
